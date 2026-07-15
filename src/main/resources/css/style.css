@@ -1,0 +1,35 @@
+.root {
+
+    -fx-background-color: #F5F7FA;
+
+}
+
+.title {
+
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+
+}
+
+.button{
+
+    -fx-background-color:#2563EB;
+    -fx-text-fill:white;
+    -fx-background-radius:8;
+    -fx-cursor:hand;
+}
+
+.button:hover{
+
+    -fx-background-color:#1D4ED8;
+
+}
+
+.text-field,
+.password-field{
+
+    -fx-background-radius:8;
+    -fx-border-radius:8;
+    -fx-pref-height:35;
+
+}

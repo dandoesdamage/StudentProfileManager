@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.studentprofilemanager.controller.LoginController"
+            stylesheets="@../css/style.css">
+
+    <center>
+
+        <VBox spacing="20"
+              alignment="CENTER"
+              BorderPane.alignment="CENTER">
+
+            <padding>
+                <Insets top="40"
+                        right="40"
+                        bottom="40"
+                        left="40"/>
+            </padding>
+
+            <Label text="Student Profile Manager"
+                   styleClass="title"/>
+
+            <TextField fx:id="usernameField"
+                       promptText="Username"
+                       prefWidth="250"/>
+
+            <PasswordField fx:id="passwordField"
+                           promptText="Password"
+                           prefWidth="250"/>
+
+            <HBox spacing="15"
+                  alignment="CENTER">
+
+                <Button text="Login"
+                        fx:id="loginButton"
+                        onAction="#login"/>
+
+                <Button text="Exit"
+                        onAction="#exit"/>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
