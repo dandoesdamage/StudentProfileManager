@@ -1,4 +1,4 @@
-package com.example.studentprogitfilemanager;
+package com.example.studentprofilemanager;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
