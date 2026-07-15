@@ -62,7 +62,7 @@
                 <Label text="A" styleClass="avatar"/>
                 <VBox spacing="0">
                     <Label text="Administrator" styleClass="field-label"/>
-                    <Label text="admin@cit.edu" styleClass="muted"/>
+                    <Label text="admin@spm.edu" styleClass="muted"/>
                 </VBox>
             </HBox>
 
