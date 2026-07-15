@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.studentprofilemanager.controller.AddStudentController"
+            prefWidth="1000" prefHeight="640"
+            stylesheets="@../css/style.css">
+
+    <!-- ============ SIDEBAR ============ -->
+    <left>
+
+        <VBox styleClass="sidebar" spacing="8">
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="SPM" styleClass="avatar"/>
+                <VBox spacing="1">
+                    <Label text="Student Profile" styleClass="app-name"/>
+                    <Label text="Manager" styleClass="app-tag"/>
+                </VBox>
+            </HBox>
+
+            <Region prefHeight="24"/>
+
+            <Button text="Dashboard" onAction="#goDashboard" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button text="Students" onAction="#goStudents" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button text="Add Student" onAction="#goAddStudent" styleClass="nav-button-active" maxWidth="Infinity"/>
+            <Button text="Search" onAction="#goSearch" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button text="Reports" styleClass="nav-button" maxWidth="Infinity"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button text="Logout"
+                    onAction="#logout"
+                    styleClass="btn-danger"
+                    maxWidth="Infinity"/>
+
+        </VBox>
+
+    </left>
+
+    <!-- ============ HEADER ============ -->
+    <top>
+
+        <HBox styleClass="header" spacing="20" alignment="CENTER_LEFT">
+
+            <VBox spacing="2">
+                <Label text="Add Student" styleClass="title"/>
+                <Label text="Create a new student profile" styleClass="subtitle"/>
+            </VBox>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <HBox styleClass="admin-chip" spacing="10" alignment="CENTER_LEFT">
+                <Label text="A" styleClass="avatar"/>
+                <VBox spacing="0">
+                    <Label text="Administrator" styleClass="field-label"/>
+                    <Label text="admin@spm.edu" styleClass="muted"/>
+                </VBox>
+            </HBox>
+
+        </HBox>
+
+    </top>
+
+    <!-- ============ CONTENT ============ -->
+    <center>
+
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <VBox styleClass="content-area" spacing="20">
+
+                <VBox styleClass="card" spacing="18">
+
+                    <Label text="Student Information" styleClass="section-title"/>
+                    <Separator/>
+
+                    <GridPane hgap="24" vgap="16">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50"/>
+                            <ColumnConstraints percentWidth="50"/>
+                        </columnConstraints>
+
+                        <!-- Row 0 -->
+                        <VBox spacing="6" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                            <Label text="Student ID" styleClass="field-label"/>
+                            <TextField fx:id="studentIdField" promptText="e.g. 2023-0006" maxWidth="Infinity"/>
+                        </VBox>
+                        <VBox spacing="6" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                            <Label text="Gender" styleClass="field-label"/>
+                            <ComboBox fx:id="genderCombo" promptText="Select gender" maxWidth="Infinity"/>
+                        </VBox>
+
+                        <!-- Row 1 -->
+                        <VBox spacing="6" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                            <Label text="First Name" styleClass="field-label"/>
+                            <TextField fx:id="firstNameField" promptText="Enter first name" maxWidth="Infinity"/>
+                        </VBox>
+                        <VBox spacing="6" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                            <Label text="Course" styleClass="field-label"/>
+                            <ComboBox fx:id="courseCombo" promptText="Select course" maxWidth="Infinity"/>
+                        </VBox>
+
+                        <!-- Row 2 -->
+                        <VBox spacing="6" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                            <Label text="Last Name" styleClass="field-label"/>
+                            <TextField fx:id="lastNameField" promptText="Enter last name" maxWidth="Infinity"/>
+                        </VBox>
+                        <VBox spacing="6" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                            <Label text="Year Level" styleClass="field-label"/>
+                            <ComboBox fx:id="yearLevelCombo" promptText="Select year level" maxWidth="Infinity"/>
+                        </VBox>
+
+                        <!-- Row 3 -->
+                        <VBox spacing="6" GridPane.rowIndex="3" GridPane.columnIndex="0">
+                            <Label text="Middle Name" styleClass="field-label"/>
+                            <TextField fx:id="middleNameField" promptText="Enter middle name" maxWidth="Infinity"/>
+                        </VBox>
+                        <VBox spacing="6" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                            <Label text="Section" styleClass="field-label"/>
+                            <ComboBox fx:id="sectionCombo" promptText="Select section" maxWidth="Infinity"/>
+                        </VBox>
+
+                        <!-- Row 4 -->
+                        <VBox spacing="6" GridPane.rowIndex="4" GridPane.columnIndex="0">
+                            <Label text="Email" styleClass="field-label"/>
+                            <TextField fx:id="emailField" promptText="name@spm.edu" maxWidth="Infinity"/>
+                        </VBox>
+                        <VBox spacing="6" GridPane.rowIndex="4" GridPane.columnIndex="1">
+                            <Label text="Contact Number" styleClass="field-label"/>
+                            <TextField fx:id="contactField" promptText="09xx-xxx-xxxx" maxWidth="Infinity"/>
+                        </VBox>
+
+                    </GridPane>
+
+                    <Label fx:id="statusLabel" text="" styleClass="status-label"/>
+
+                    <Separator/>
+
+                    <HBox spacing="12" alignment="CENTER_RIGHT">
+                        <Button text="Cancel" onAction="#cancel" styleClass="btn-secondary"/>
+                        <Button text="Clear" onAction="#clear" styleClass="btn-secondary"/>
+                        <Button text="Save" onAction="#save" styleClass="btn-primary"/>
+                    </HBox>
+
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+
+    </center>
+
+</BorderPane>

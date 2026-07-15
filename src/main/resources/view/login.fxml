@@ -7,45 +7,62 @@
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.studentprofilemanager.controller.LoginController"
+            styleClass="app-background"
+            prefWidth="900" prefHeight="600"
             stylesheets="@../css/style.css">
 
     <center>
 
-        <VBox spacing="20"
-              alignment="CENTER"
-              BorderPane.alignment="CENTER">
+        <StackPane BorderPane.alignment="CENTER">
 
-            <padding>
-                <Insets top="40"
-                        right="40"
-                        bottom="40"
-                        left="40"/>
-            </padding>
+            <VBox fx:id="loginCard"
+                  styleClass="login-card"
+                  alignment="TOP_CENTER"
+                  spacing="16"
+                  maxWidth="380"
+                  maxHeight="-Infinity">
 
-            <Label text="Student Profile Manager"
-                   styleClass="title"/>
+                <!-- Logo / brand -->
+                <Label text="SPM" styleClass="logo-badge"/>
 
-            <TextField fx:id="usernameField"
-                       promptText="Username"
-                       prefWidth="250"/>
+                <Label text="Student Profile Manager" styleClass="title"/>
+                <Label text="Sign in to continue to your account" styleClass="subtitle"/>
 
-            <PasswordField fx:id="passwordField"
-                           promptText="Password"
-                           prefWidth="250"/>
+                <!-- Username -->
+                <VBox spacing="6" alignment="CENTER_LEFT">
+                    <Label text="Username" styleClass="field-label"/>
+                    <TextField fx:id="usernameField"
+                               promptText="Enter your username"
+                               maxWidth="Infinity"/>
+                </VBox>
 
-            <HBox spacing="15"
-                  alignment="CENTER">
+                <!-- Password -->
+                <VBox spacing="6" alignment="CENTER_LEFT">
+                    <Label text="Password" styleClass="field-label"/>
+                    <PasswordField fx:id="passwordField"
+                                   promptText="Enter your password"
+                                   maxWidth="Infinity"/>
+                </VBox>
 
+                <!-- Actions -->
                 <Button text="Login"
                         fx:id="loginButton"
-                        onAction="#login"/>
+                        onAction="#login"
+                        styleClass="btn-primary"
+                        maxWidth="Infinity">
+                    <VBox.margin>
+                        <Insets top="6"/>
+                    </VBox.margin>
+                </Button>
 
                 <Button text="Exit"
-                        onAction="#exit"/>
+                        onAction="#exit"
+                        styleClass="btn-secondary"
+                        maxWidth="Infinity"/>
 
-            </HBox>
+            </VBox>
 
-        </VBox>
+        </StackPane>
 
     </center>
 

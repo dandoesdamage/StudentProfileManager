@@ -7,42 +7,127 @@
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.studentprofilemanager.controller.DashboardController"
+            prefWidth="1000" prefHeight="640"
             stylesheets="@../css/style.css">
 
+    <!-- ============ SIDEBAR ============ -->
+    <left>
+
+        <VBox styleClass="sidebar" spacing="8">
+
+            <!-- Brand -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="SPM" styleClass="avatar"/>
+                <VBox spacing="1">
+                    <Label text="Student Profile" styleClass="app-name"/>
+                    <Label text="Manager" styleClass="app-tag"/>
+                </VBox>
+            </HBox>
+
+            <Region prefHeight="24"/>
+
+            <!-- Navigation (visual only — no controller methods required) -->
+            <Button text="Dashboard" styleClass="nav-button-active" maxWidth="Infinity"/>
+            <Button text="Students" onAction="#goStudents" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button text="Add Student" onAction="#goAddStudent" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button text="Search" onAction="#goSearch" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button text="Reports" styleClass="nav-button" maxWidth="Infinity"/>
+
+            <!-- Spacer pushes logout to the bottom -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button text="Logout"
+                    onAction="#logout"
+                    styleClass="btn-danger"
+                    maxWidth="Infinity"/>
+
+        </VBox>
+
+    </left>
+
+    <!-- ============ HEADER ============ -->
     <top>
 
-        <HBox spacing="20"
-              alignment="CENTER_LEFT">
+        <HBox styleClass="header" spacing="20" alignment="CENTER_LEFT">
 
-            <padding>
-
-                <Insets top="15"
-                        right="20"
-                        bottom="15"
-                        left="20"/>
-
-            </padding>
-
-            <Label text="Dashboard"
-                   styleClass="title"/>
+            <VBox spacing="2">
+                <Label text="Dashboard" styleClass="title"/>
+                <Label text="Welcome back, Administrator" styleClass="subtitle"/>
+            </VBox>
 
             <Pane HBox.hgrow="ALWAYS"/>
 
-            <Button text="Logout"
-                    onAction="#logout"/>
+            <!-- Admin info chip -->
+            <HBox styleClass="admin-chip" spacing="10" alignment="CENTER_LEFT">
+                <Label text="A" styleClass="avatar"/>
+                <VBox spacing="0">
+                    <Label text="Administrator" styleClass="field-label"/>
+                    <Label text="admin@cit.edu" styleClass="muted"/>
+                </VBox>
+            </HBox>
 
         </HBox>
 
     </top>
 
+    <!-- ============ CONTENT ============ -->
     <center>
 
-        <VBox alignment="CENTER"
-              spacing="20">
+        <VBox styleClass="content-area" spacing="24">
 
-            <Label text="Welcome Administrator"/>
+            <!-- Statistics cards -->
+            <HBox spacing="20">
 
-            <Label text="Student Profile Manager"/>
+                <VBox styleClass="stat-card" spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Total Students" styleClass="stat-label"/>
+                    <Label text="0" styleClass="stat-value"/>
+                </VBox>
+
+                <VBox styleClass="stat-card, stat-accent-green" spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Active Courses" styleClass="stat-label"/>
+                    <Label text="0" styleClass="stat-value"/>
+                </VBox>
+
+                <VBox styleClass="stat-card, stat-accent-amber" spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Sections" styleClass="stat-label"/>
+                    <Label text="0" styleClass="stat-value"/>
+                </VBox>
+
+                <VBox styleClass="stat-card, stat-accent-violet" spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Average GPA" styleClass="stat-label"/>
+                    <Label text="0.00" styleClass="stat-value"/>
+                </VBox>
+
+            </HBox>
+
+            <!-- Welcome / administrator information card -->
+            <VBox styleClass="card" spacing="14">
+
+                <Label text="Welcome, Administrator" styleClass="section-title"/>
+                <Label text="You are signed in to the Student Profile Manager. Use the navigation panel to manage student records."
+                       styleClass="muted"
+                       wrapText="true"/>
+
+                <Separator/>
+
+                <Label text="Administrator Information" styleClass="field-label"/>
+
+                <HBox spacing="40">
+                    <VBox spacing="6">
+                        <Label text="Full Name" styleClass="muted"/>
+                        <Label text="System Administrator" styleClass="field-label"/>
+                    </VBox>
+                    <VBox spacing="6">
+                        <Label text="Username" styleClass="muted"/>
+                        <Label text="admin" styleClass="field-label"/>
+                    </VBox>
+                    <VBox spacing="6">
+                        <Label text="Role" styleClass="muted"/>
+                        <Label text="Administrator" styleClass="field-label"/>
+                    </VBox>
+                </HBox>
+
+            </VBox>
 
         </VBox>
 
