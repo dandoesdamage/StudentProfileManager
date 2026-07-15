@@ -43,5 +43,4 @@ src
         
 ```
 
- 📌 Notes
 The current version stores data temporarily in memory. Future versions will integrate a persistent database using MySQL/MariaDB through XAMPP.
