@@ -1,8 +1,8 @@
- Student Profile Manager
+🎓 Student Profile Manager
 
 A JavaFX desktop application that allows administrators to efficiently manage student records through a modern and user-friendly interface.
 
- ✨ Features
+✨ Features
 
 - Administrator Login
 - Dashboard
@@ -11,7 +11,7 @@ A JavaFX desktop application that allows administrators to efficiently manage st
 - Update Student Information
 - Delete Student Records
 - Search Students
-- Modern JavaFX UI
+- Modern JavaFX User Interface
 
 🛠️ Built With
 
@@ -26,12 +26,22 @@ A JavaFX desktop application that allows administrators to efficiently manage st
 
 ```
 src
-├── controller
-├── model
-├── repository
-├── service
-├── util
-├── view
-└── css
-
+└── main
+    ├── java
+    │   └── com.example.studentprofilemanager
+    │       ├── controller      * Application controllers
+    │       ├── model           * Student model/classes
+    │       ├── repository      * Data management
+    │       ├── service         * Business logic
+    │       ├── util            * Helper and utility classes
+    │       ├── database        * Database connection (future)
+    │       └── Main.java       * Application entry point
+    │
+    └── resources
+        ├── css                 * Stylesheets
+        └── view                * FXML user interfaces
+        
 ```
+
+ 📌 Notes
+The current version stores data temporarily in memory. Future versions will integrate a persistent database using MySQL/MariaDB through XAMPP.
