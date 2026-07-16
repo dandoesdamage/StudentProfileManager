@@ -129,15 +129,15 @@ public class StudentRepository {
      */
     private void seedSampleData() {
         studentList.add(build("2023-0001", "Dela Cruz", "Juan", "Santos",
-                "Male", "BSIT", 3, "A", "juan.delacruz@spm.edu", "0917-123-4567", 1.75));
+                "Male", "BSIT", 3, "A", "juan.delacruz@spm.edu", "0917-123-4567", 3.75));
         studentList.add(build("2023-0002", "Reyes", "Maria", "Lopez",
-                "Female", "BSCS", 2, "B", "maria.reyes@spm.edu", "0918-234-5678", 1.50));
+                "Female", "BSCS", 2, "B", "maria.reyes@spm.edu", "0918-234-5678", 3.50));
         studentList.add(build("2023-0003", "Santos", "Pedro", "Garcia",
-                "Male", "BSIS", 4, "A", "pedro.santos@spm.edu", "0919-345-6789", 2.00));
+                "Male", "BSIS", 4, "A", "pedro.santos@spm.edu", "0919-345-6789", 2.85));
         studentList.add(build("2023-0004", "Villanueva", "Ana", "Cruz",
-                "Female", "BSIT", 1, "C", "ana.villanueva@spm.edu", "0920-456-7890", 1.25));
+                "Female", "BSIT", 1, "C", "ana.villanueva@spm.edu", "0920-456-7890", 3.25));
         studentList.add(build("2023-0005", "Mendoza", "Jose", "Ramos",
-                "Male", "BSBA", 3, "B", "jose.mendoza@spm.edu", "0921-567-8901", 2.25));
+                "Male", "BSBA", 3, "B", "jose.mendoza@spm.edu", "0921-567-8901", 3.90));
     }
 
     private Student build(String studentId, String lastName, String firstName,

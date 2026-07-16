@@ -30,6 +30,7 @@ public class UpdateStudentController {
     @FXML private ComboBox<String> sectionCombo;
     @FXML private TextField emailField;
     @FXML private TextField contactField;
+    @FXML private TextField gpaField;
     @FXML private Label statusLabel;
 
     private final StudentRepository repository = StudentRepository.getInstance();
@@ -61,6 +62,7 @@ public class UpdateStudentController {
         sectionCombo.setValue(student.getSection());
         emailField.setText(student.getEmail());
         contactField.setText(student.getContactNumber());
+        gpaField.setText(String.format("%.2f", student.getGpa()));
     }
 
     @FXML
@@ -88,6 +90,7 @@ public class UpdateStudentController {
         editing.setSection(sectionCombo.getValue());
         editing.setEmail(emailField.getText().trim());
         editing.setContactNumber(contactField.getText().trim());
+        editing.setGpa(parseGpa());
         editing.setFullName(firstNameField.getText().trim()
                 + " " + lastNameField.getText().trim());
 
@@ -121,7 +124,26 @@ public class UpdateStudentController {
             return "Please enter a valid email address.";
         }
         if (isBlank(contactField.getText())) return "Contact number is required.";
+        String gpaError = validateGpa();
+        if (gpaError != null) return gpaError;
         return null;
+    }
+
+    private String validateGpa() {
+        if (isBlank(gpaField.getText())) return "GPA is required.";
+        try {
+            double gpa = Double.parseDouble(gpaField.getText().trim());
+            if (gpa < 0.0 || gpa > 4.0) {
+                return "GPA must be between 0.0 and 4.0.";
+            }
+        } catch (NumberFormatException ex) {
+            return "GPA must be a valid number.";
+        }
+        return null;
+    }
+
+    private double parseGpa() {
+        return Double.parseDouble(gpaField.getText().trim());
     }
 
     private boolean isBlank(String value) {

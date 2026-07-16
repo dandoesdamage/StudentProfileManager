@@ -133,6 +133,12 @@
                             <TextField fx:id="contactField" promptText="09xx-xxx-xxxx" maxWidth="Infinity"/>
                         </VBox>
 
+                        <!-- Row 5 -->
+                        <VBox spacing="6" GridPane.rowIndex="5" GridPane.columnIndex="0">
+                            <Label text="GPA" styleClass="field-label"/>
+                            <TextField fx:id="gpaField" promptText="e.g. 3.50" maxWidth="Infinity"/>
+                        </VBox>
+
                     </GridPane>
 
                     <Label fx:id="statusLabel" text="" styleClass="status-label"/>

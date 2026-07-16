@@ -35,6 +35,7 @@ public class StudentManagementController {
     @FXML private TableColumn<Student, String> colSection;
     @FXML private TableColumn<Student, String> colEmail;
     @FXML private TableColumn<Student, String> colContact;
+    @FXML private TableColumn<Student, String> colGpa;
 
     @FXML private TextField searchField;
     @FXML private ComboBox<String> courseFilter;
@@ -62,6 +63,8 @@ public class StudentManagementController {
                 new SimpleStringProperty(c.getValue().getEmail()));
         colContact.setCellValueFactory(c ->
                 new SimpleStringProperty(c.getValue().getContactNumber()));
+        colGpa.setCellValueFactory(c ->
+                new SimpleStringProperty(String.format("%.2f", c.getValue().getGpa())));
 
         studentTable.setItems(tableData);
         studentTable.setPlaceholder(Components.emptyPlaceholder(
