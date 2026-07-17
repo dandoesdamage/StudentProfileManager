@@ -91,4 +91,4 @@ StudentProfileManager
 
 ```
 
-**Note:** This project uses **MySQL/MariaDB (XAMPP)** with **JDBC** for persistent data storage and database connectivity.
+**Note:** This project uses **MySQL (XAMPP)** with **JDBC** for persistent data storage and database connectivity.
