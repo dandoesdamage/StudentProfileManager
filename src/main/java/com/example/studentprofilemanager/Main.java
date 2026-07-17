@@ -22,7 +22,7 @@ public class Main extends Application {
         stage.show();
 
     }
-
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         launch(args);
     }
