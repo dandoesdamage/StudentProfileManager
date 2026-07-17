@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.studentprofilemanager.controller.StudentRegisterController"
+            styleClass="app-background"
+            prefWidth="900" prefHeight="700"
+            stylesheets="@../css/style.css">
+
+    <center>
+        <StackPane BorderPane.alignment="CENTER">
+            <VBox styleClass="login-card" alignment="TOP_CENTER" spacing="12"
+                  maxWidth="420" maxHeight="-Infinity">
+
+                <Label text="Student Registration" styleClass="title"/>
+                <Label text="Create your student account" styleClass="subtitle"/>
+
+                <TextField fx:id="studentIdField" promptText="Student ID"/>
+                <TextField fx:id="fullNameField" promptText="Full Name"/>
+                <TextField fx:id="emailField" promptText="Email"/>
+                <TextField fx:id="courseField" promptText="Course"/>
+                <TextField fx:id="yearLevelField" promptText="Year Level (e.g. 1)"/>
+                <TextField fx:id="sectionField" promptText="Section"/>
+                <TextField fx:id="usernameField" promptText="Username"/>
+                <PasswordField fx:id="passwordField" promptText="Password"/>
+                <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password"/>
+
+                <Button text="Register" onAction="#register" styleClass="btn-primary" maxWidth="Infinity">
+                    <VBox.margin>
+                        <Insets top="6"/>
+                    </VBox.margin>
+                </Button>
+                <Button text="Back to Login" onAction="#cancel" styleClass="btn-secondary" maxWidth="Infinity"/>
+
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.studentprofilemanager.controller.StudentDashboardController"
+            prefWidth="1000" prefHeight="640"
+            stylesheets="@../css/style.css">
+
+    <!-- ============ SIDEBAR ============ -->
+    <left>
+
+        <VBox styleClass="sidebar" spacing="8">
+
+            <!-- Brand -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="SPM" styleClass="avatar"/>
+                <VBox spacing="1">
+                    <Label text="Student Profile" styleClass="app-name"/>
+                    <Label text="Manager" styleClass="app-tag"/>
+                </VBox>
+            </HBox>
+
+            <Region prefHeight="24"/>
+
+            <Button text="Dashboard" styleClass="nav-button-active" maxWidth="Infinity"/>
+
+            <!-- Spacer pushes logout to the bottom -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button text="Logout"
+                    onAction="#logout"
+                    styleClass="btn-danger"
+                    maxWidth="Infinity"/>
+
+        </VBox>
+
+    </left>
+
+    <!-- ============ HEADER ============ -->
+    <top>
+
+        <HBox styleClass="header" spacing="20" alignment="CENTER_LEFT">
+
+            <VBox spacing="2">
+                <Label text="Dashboard" styleClass="title"/>
+                <Label fx:id="welcomeLabel" text="Welcome back" styleClass="subtitle"/>
+            </VBox>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <!-- Student info chip -->
+            <HBox styleClass="admin-chip" spacing="10" alignment="CENTER_LEFT">
+                <Label fx:id="avatarLabel" text="S" styleClass="avatar"/>
+                <VBox spacing="0">
+                    <Label fx:id="fullNameLabel" text="Student" styleClass="field-label"/>
+                    <Label fx:id="emailLabel" text="" styleClass="muted"/>
+                </VBox>
+            </HBox>
+
+        </HBox>
+
+    </top>
+
+    <!-- ============ CONTENT ============ -->
+    <center>
+
+        <VBox styleClass="content-area" spacing="24">
+
+            <!-- Statistics cards -->
+            <HBox spacing="20">
+
+                <VBox styleClass="stat-card" spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Student ID" styleClass="stat-label"/>
+                    <Label fx:id="studentIdValue" text="-" styleClass="stat-value"/>
+                </VBox>
+
+                <VBox styleClass="stat-card, stat-accent-green" spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Course" styleClass="stat-label"/>
+                    <Label fx:id="courseValue" text="-" styleClass="stat-value"/>
+                </VBox>
+
+                <VBox styleClass="stat-card, stat-accent-amber" spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Year &amp; Section" styleClass="stat-label"/>
+                    <Label fx:id="sectionValue" text="-" styleClass="stat-value"/>
+                </VBox>
+
+                <VBox styleClass="stat-card, stat-accent-violet" spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="GPA" styleClass="stat-label"/>
+                    <Label fx:id="gpaValue" text="0.00" styleClass="stat-value"/>
+                </VBox>
+
+            </HBox>
+
+            <!-- Welcome / student information card -->
+            <VBox styleClass="card" spacing="14">
+
+                <Label text="Welcome" styleClass="section-title"/>
+                <Label text="You are signed in to the Student Profile Manager. This is your student profile overview."
+                       styleClass="muted"
+                       wrapText="true"/>
+
+                <Separator/>
+
+                <Label text="Student Information" styleClass="field-label"/>
+
+                <HBox spacing="40">
+                    <VBox spacing="6">
+                        <Label text="Full Name" styleClass="muted"/>
+                        <Label fx:id="fullNameDetailLabel" text="-" styleClass="field-label"/>
+                    </VBox>
+                    <VBox spacing="6">
+                        <Label text="Username" styleClass="muted"/>
+                        <Label fx:id="usernameLabel" text="-" styleClass="field-label"/>
+                    </VBox>
+                    <VBox spacing="6">
+                        <Label text="Role" styleClass="muted"/>
+                        <Label text="Student" styleClass="field-label"/>
+                    </VBox>
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

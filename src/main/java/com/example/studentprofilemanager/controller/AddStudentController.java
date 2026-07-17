@@ -10,12 +10,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
  * Controller for the Add Student screen (add-student.fxml).
- * Collects a new student profile, validates it and stores it in the shared
- * {@link StudentRepository}. No database code — ready for a future JDBC layer.
+ * Collects a new student profile plus login credentials, validates it and
+ * stores it in the shared {@link StudentRepository}.
  */
 public class AddStudentController {
 
@@ -30,6 +31,8 @@ public class AddStudentController {
     @FXML private TextField emailField;
     @FXML private TextField contactField;
     @FXML private TextField gpaField;
+    @FXML private TextField usernameField;
+    @FXML private PasswordField passwordField;
     @FXML private Label statusLabel;
 
     private final StudentRepository repository = StudentRepository.getInstance();
@@ -57,6 +60,12 @@ public class AddStudentController {
             return;
         }
 
+        String username = usernameField.getText().trim();
+        if (repository.usernameExists(username)) {
+            showError("Username \"" + username + "\" is already taken.");
+            return;
+        }
+
         Student student = new Student();
         student.setStudentId(id);
         student.setFirstName(firstNameField.getText().trim());
@@ -71,6 +80,8 @@ public class AddStudentController {
         student.setGpa(parseGpa());
         student.setFullName(firstNameField.getText().trim()
                 + " " + lastNameField.getText().trim());
+        student.setUsername(username);
+        student.setPassword(passwordField.getText());
 
         repository.addStudent(student);
 
@@ -89,6 +100,8 @@ public class AddStudentController {
         emailField.clear();
         contactField.clear();
         gpaField.clear();
+        usernameField.clear();
+        passwordField.clear();
         genderCombo.getSelectionModel().clearSelection();
         courseCombo.getSelectionModel().clearSelection();
         yearLevelCombo.getSelectionModel().clearSelection();
@@ -120,6 +133,10 @@ public class AddStudentController {
         if (isBlank(contactField.getText())) return "Contact number is required.";
         String gpaError = validateGpa();
         if (gpaError != null) return gpaError;
+        if (isBlank(usernameField.getText())) return "Username is required.";
+        if (passwordField.getText() == null || passwordField.getText().isEmpty()) {
+            return "Password is required.";
+        }
         return null;
     }
 

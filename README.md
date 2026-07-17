@@ -5,13 +5,18 @@ A JavaFX desktop application that allows administrators to efficiently manage st
 ✨ Features
 
 - Administrator Login
-- Dashboard
+- Student Login
+- Student Registration
+- Role-Based Access (Administrator & Student)
+- Administrator Dashboard
+- Student Dashboard
 - View Student Records
 - Add Student
 - Update Student Information
 - Delete Student Records
 - Search Students
 - Modern JavaFX User Interface
+- JDBC Database Connectivity (MySQL/XAMPP)
 
 🛠️ Built With
 
@@ -25,22 +30,65 @@ A JavaFX desktop application that allows administrators to efficiently manage st
 📁 Project Structure
 
 ```
-src
-└── main
-    ├── java
-    │   └── com.example.studentprofilemanager
-    │       ├── controller      * Application controllers
-    │       ├── model           * Student model/classes
-    │       ├── repository      * Data management
-    │       ├── service         * Business logic
-    │       ├── util            * Helper and utility classes
-    │       ├── database        * Database connection (future)
-    │       └── Main.java       * Application entry point
-    │
-    └── resources
-        ├── css                 * Stylesheets
-        └── view                * FXML user interfaces
-        
+StudentProfileManager
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com.example.studentprofilemanager
+│   │   │       ├── controller
+│   │   │       │   ├── AddStudentController.java
+│   │   │       │   ├── DashboardController.java
+│   │   │       │   ├── LoginController.java
+│   │   │       │   ├── SearchStudentController.java
+│   │   │       │   ├── StudentDashboardController.java
+│   │   │       │   ├── StudentManagementController.java
+│   │   │       │   ├── StudentRegisterController.java
+│   │   │       │   └── UpdateStudentController.java
+│   │   │       │
+│   │   │       ├── db
+│   │   │       │   └── DatabaseConnection.java
+│   │   │       │
+│   │   │       ├── model
+│   │   │       │   ├── Administrator.java
+│   │   │       │   ├── Student.java
+│   │   │       │   └── User.java
+│   │   │       │
+│   │   │       ├── repository
+│   │   │       │   └── StudentRepository.java
+│   │   │       │
+│   │   │       ├── service
+│   │   │       │   └── AuthenticationService.java
+│   │   │       │
+│   │   │       ├── util
+│   │   │       │   ├── AppData.java
+│   │   │       │   ├── Components.java
+│   │   │       │   ├── Dialogs.java
+│   │   │       │   └── SceneNavigator.java
+│   │   │       │
+│   │   │       ├── Main.java
+│   │   │       └── module-info.java
+│   │   │
+│   │   └── resources
+│   │       ├── css
+│   │       │   └── style.css
+│   │       │
+│   │       └── view
+│   │           ├── login.fxml
+│   │           ├── register.fxml
+│   │           ├── dashboard.fxml
+│   │           ├── student-dashboard.fxml
+│   │           ├── students.fxml
+│   │           ├── add-student.fxml
+│   │           ├── update-student.fxml
+│   │           └── search-student.fxml
+│   │
+│   └── target
+│
+├── pom.xml
+├── .gitignore
+└── README.md
+
 ```
 
-The current version stores data temporarily in memory. Future versions will integrate a persistent database using MySQL/MariaDB through XAMPP.
+**Note:** This project uses **MySQL/MariaDB (XAMPP)** with **JDBC** for persistent data storage and database connectivity.

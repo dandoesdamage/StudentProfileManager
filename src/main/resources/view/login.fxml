@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -43,6 +44,18 @@
                                    promptText="Enter your password"
                                    maxWidth="Infinity"/>
                 </VBox>
+
+                <!-- inside loginCard, right after the password VBox, before the Login Button -->
+                <HBox spacing="16" alignment="CENTER">
+                    <fx:define>
+                        <ToggleGroup fx:id="roleGroup"/>
+                    </fx:define>
+                    <RadioButton fx:id="adminRadio" text="Administrator" toggleGroup="$roleGroup" selected="true"/>
+                    <RadioButton fx:id="studentRadio" text="Student" toggleGroup="$roleGroup"/>
+                </HBox>
+
+                <!-- after the Exit Button, still inside loginCard -->
+                <Hyperlink text="Register as Student" onAction="#goRegister" styleClass="subtitle"/>
 
                 <!-- Actions -->
                 <Button text="Login"

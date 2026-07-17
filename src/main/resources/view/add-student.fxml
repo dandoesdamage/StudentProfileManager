@@ -139,6 +139,16 @@
                             <TextField fx:id="gpaField" promptText="e.g. 3.50" maxWidth="Infinity"/>
                         </VBox>
 
+                        <!-- Row 6 -->
+                        <VBox spacing="6" GridPane.rowIndex="6" GridPane.columnIndex="0">
+                            <Label text="Username" styleClass="field-label"/>
+                            <TextField fx:id="usernameField" promptText="Login username" maxWidth="Infinity"/>
+                        </VBox>
+                        <VBox spacing="6" GridPane.rowIndex="6" GridPane.columnIndex="1">
+                            <Label text="Password" styleClass="field-label"/>
+                            <PasswordField fx:id="passwordField" promptText="Login password" maxWidth="Infinity"/>
+                        </VBox>
+
                     </GridPane>
 
                     <Label fx:id="statusLabel" text="" styleClass="status-label"/>
