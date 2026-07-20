@@ -143,6 +143,7 @@ public class StudentRepository {
      * resolves the record currently at that position and delegates to the
      * by-object update below.
      */
+
     public void updateStudent(int index, Student student) {
         List<Student> all = getAllStudents();
         if (index >= 0 && index < all.size()) {
@@ -271,6 +272,29 @@ public class StudentRepository {
         return matches;
     }
 
+    /**
+     * Filters students by keyword (reusing searchStudents), then narrows
+     * by course and year level. "All" (or null) skips that filter.
+     * Keeps all filtering logic inside the repository per Reports page
+     * requirements, rather than in the controller.
+     */
+    public List<Student> filterStudents(String keyword, String course, String year) {
+        List<Student> base = searchStudents(keyword);
+        List<Student> filtered = new ArrayList<>();
+
+        for (Student s : base) {
+            boolean courseOk = course == null || course.equals("All")
+                    || course.equals(s.getCourse());
+            boolean yearOk = year == null || year.equals("All")
+                    || year.equals(String.valueOf(s.getYearLevel()));
+            if (courseOk && yearOk) {
+                filtered.add(s);
+            }
+        }
+
+        return filtered;
+    }
+
     private boolean contains(String value, String needle) {
         return value != null && value.toLowerCase().contains(needle);
     }
@@ -331,6 +355,52 @@ public class StudentRepository {
         }
 
         return 1;
+    }
+
+    /**
+     * Count of all students. Returns 0 if the table is empty
+     * (COUNT(*) always returns a row, even on an empty table).
+     */
+    public int countStudents() {
+        String sql = "SELECT COUNT(*) AS total FROM students";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getInt("total");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to count students.", e);
+        }
+
+        return 0;
+    }
+
+    /**
+     * Average GPA across all students. Returns 0.0 if the table is
+     * empty (AVG() on zero rows yields SQL NULL, which we guard against
+     * via ResultSet.getDouble() + wasNull(), rather than returning NaN).
+     */
+    public double getAverageGpa() {
+        String sql = "SELECT AVG(gpa) AS avg_gpa FROM students";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            if (rs.next()) {
+                double avg = rs.getDouble("avg_gpa");
+                return rs.wasNull() ? 0.0 : avg;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to compute average GPA.", e);
+        }
+
+        return 0.0;
     }
 
     /* ---------------------------------------------------------------------

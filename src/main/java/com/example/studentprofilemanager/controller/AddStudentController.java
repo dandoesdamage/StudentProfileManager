@@ -193,6 +193,11 @@ public class AddStudentController {
     }
 
     @FXML
+    private void goReports(ActionEvent event) {
+        SceneNavigator.navigate(event, "/view/reports.fxml", "Reports");
+    }
+
+    @FXML
     private void logout(ActionEvent event) {
         SceneNavigator.navigate(event, "/view/login.fxml", "Student Profile Manager");
     }

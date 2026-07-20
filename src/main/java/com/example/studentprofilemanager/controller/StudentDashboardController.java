@@ -1,5 +1,7 @@
 package com.example.studentprofilemanager.controller;
 
+// add to imports
+import com.example.studentprofilemanager.service.SessionManager;
 import com.example.studentprofilemanager.Main;
 import com.example.studentprofilemanager.model.Student;
 import javafx.event.ActionEvent;
@@ -56,6 +58,7 @@ public class StudentDashboardController {
     @FXML
     private void logout(ActionEvent event) {
         try {
+            SessionManager.clearSession();
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/login.fxml"));
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(loader.load()));

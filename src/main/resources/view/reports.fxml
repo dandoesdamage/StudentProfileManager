@@ -8,7 +8,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.studentprofilemanager.controller.SearchStudentController"
+            fx:controller="com.example.studentprofilemanager.controller.ReportsController"
             prefWidth="1000" prefHeight="640"
             stylesheets="@../css/style.css">
 
@@ -32,8 +32,9 @@
             <Button text="Dashboard" onAction="#goDashboard" styleClass="nav-button" maxWidth="Infinity"/>
             <Button text="Students" onAction="#goStudents" styleClass="nav-button" maxWidth="Infinity"/>
             <Button text="Add Student" onAction="#goAddStudent" styleClass="nav-button" maxWidth="Infinity"/>
-            <Button text="Search" onAction="#goSearch" styleClass="nav-button-active" maxWidth="Infinity"/>
-            <Button text="Reports" onAction="#goReports" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button text="Search" onAction="#goSearch" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button text="Reports" onAction="#goReports" styleClass="nav-button-active" maxWidth="Infinity"/>
+
             <Region VBox.vgrow="ALWAYS"/>
 
             <Button text="Logout"
@@ -51,8 +52,8 @@
         <HBox styleClass="header" spacing="20" alignment="CENTER_LEFT">
 
             <VBox spacing="2">
-                <Label text="Search Students" styleClass="title"/>
-                <Label text="Find student records quickly" styleClass="subtitle"/>
+                <Label text="Reports" styleClass="title"/>
+                <Label text="Browse detailed student records" styleClass="subtitle"/>
             </VBox>
 
             <Pane HBox.hgrow="ALWAYS"/>
@@ -74,45 +75,65 @@
 
         <VBox styleClass="content-area" spacing="20">
 
-            <!-- Search card -->
+            <!-- Toolbar card: search + filters + refresh -->
             <VBox styleClass="card" spacing="16">
 
-                <Label text="Search" styleClass="section-title"/>
+                <HBox spacing="12" alignment="CENTER_LEFT">
+
+                    <VBox spacing="6" HBox.hgrow="ALWAYS">
+                        <Label text="Search" styleClass="field-label"/>
+                        <TextField fx:id="searchField"
+                                   promptText="Search by ID, name, course or email…"
+                                   maxWidth="Infinity"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="Course" styleClass="field-label"/>
+                        <ComboBox fx:id="courseFilter" prefWidth="150"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="Year Level" styleClass="field-label"/>
+                        <ComboBox fx:id="yearFilter" prefWidth="130"/>
+                    </VBox>
+
+                </HBox>
 
                 <HBox spacing="12" alignment="CENTER_LEFT">
-                    <TextField fx:id="searchField"
-                               promptText="Enter student ID, name, course or email…"
-                               HBox.hgrow="ALWAYS"
-                               maxWidth="Infinity"/>
-                    <Button text="Search" onAction="#search" styleClass="btn-primary"/>
-                    <Button text="Reset" onAction="#reset" styleClass="btn-secondary"/>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                    <Button text="Refresh" onAction="#refresh" styleClass="btn-secondary"/>
                 </HBox>
 
             </VBox>
 
-            <!-- Results card -->
+            <!-- Table card (read-only) -->
             <VBox styleClass="card" spacing="12" VBox.vgrow="ALWAYS">
 
                 <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Label text="Results" styleClass="section-title"/>
+                    <Label text="Student Report" styleClass="section-title"/>
                     <Pane HBox.hgrow="ALWAYS"/>
-                    <Label fx:id="statusLabel" text="Enter a keyword to begin" styleClass="status-label"/>
+                    <Label fx:id="statusLabel" text="Ready" styleClass="status-label"/>
                 </HBox>
 
-                <TableView fx:id="resultTable" VBox.vgrow="ALWAYS">
+                <TableView fx:id="reportTable" VBox.vgrow="ALWAYS" editable="false">
                     <columns>
                         <TableColumn fx:id="colId" text="Student ID" prefWidth="110"/>
-                        <TableColumn fx:id="colName" text="Name" prefWidth="180"/>
-                        <TableColumn fx:id="colCourse" text="Course" prefWidth="90"/>
-                        <TableColumn fx:id="colYear" text="Year" prefWidth="60"/>
-                        <TableColumn fx:id="colSection" text="Section" prefWidth="80"/>
-                        <TableColumn fx:id="colEmail" text="Email" prefWidth="200"/>
-                        <TableColumn fx:id="colContact" text="Contact" prefWidth="130"/>
+                        <TableColumn fx:id="colName" text="Full Name" prefWidth="200"/>
+                        <TableColumn fx:id="colCourse" text="Course" prefWidth="100"/>
+                        <TableColumn fx:id="colYear" text="Year Level" prefWidth="90"/>
+                        <TableColumn fx:id="colEmail" text="Email" prefWidth="220"/>
+                        <TableColumn fx:id="colGpa" text="GPA" prefWidth="70"/>
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
                     </columnResizePolicy>
                 </TableView>
+
+                <!-- Reserved for future features — no implementation yet -->
+                <HBox spacing="12" alignment="CENTER_RIGHT">
+                    <Button text="Print Report" styleClass="btn-secondary" disable="true"/>
+                    <Button text="Export CSV" styleClass="btn-secondary" disable="true"/>
+                </HBox>
 
             </VBox>
 

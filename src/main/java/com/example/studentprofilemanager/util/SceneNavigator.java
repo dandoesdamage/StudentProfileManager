@@ -1,5 +1,7 @@
 package com.example.studentprofilemanager.util;
 
+// add to imports
+import com.example.studentprofilemanager.service.SessionManager;
 import com.example.studentprofilemanager.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -40,6 +42,27 @@ public final class SceneNavigator {
                     "Unable to open the requested screen.");
         }
     }
+    /**
+     * Guards protected screens: if there is no valid session (missing/
+     * corrupted session.dat), redirects to the login screen instead of
+     * loading the requested FXML. Returns true if it's safe to proceed.
+     */
+    private static boolean requireSession(Stage stage) {
+        if (SessionManager.hasValidSession()) {
+            return true;
+        }
+        try {
+            FXMLLoader loginLoader =
+                    new FXMLLoader(Main.class.getResource("/view/login.fxml"));
+            Scene loginScene = new Scene(loginLoader.load());
+            stage.setScene(loginScene);
+            stage.setTitle("Student Profile Manager");
+            stage.centerOnScreen();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     /**
      * Loads {@code fxmlPath} and returns the loaded controller so the caller
@@ -67,4 +90,5 @@ public final class SceneNavigator {
             return null;
         }
     }
+
 }

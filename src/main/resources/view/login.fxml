@@ -4,6 +4,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -24,7 +26,9 @@
                   maxHeight="-Infinity">
 
                 <!-- Logo / brand -->
-                <Label text="SPM" styleClass="logo-badge"/>
+                <ImageView fitHeight="68" fitWidth="68" preserveRatio="true" smooth="true">
+                    <Image url="@../images/spm-logo.png"/>
+                </ImageView>
 
                 <Label text="Student Profile Manager" styleClass="title"/>
                 <Label text="Sign in to continue to your account" styleClass="subtitle"/>

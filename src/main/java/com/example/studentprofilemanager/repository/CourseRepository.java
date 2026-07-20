@@ -77,4 +77,25 @@ public class CourseRepository {
             throw new RuntimeException("Failed to delete course.", e);
         }
     }
+
+    /**
+     * Count of all courses. Returns 0 if the table is empty.
+     */
+    public int countCourses() {
+        String sql = "SELECT COUNT(*) AS total FROM courses";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getInt("total");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to count courses.", e);
+        }
+
+        return 0;
+    }
 }

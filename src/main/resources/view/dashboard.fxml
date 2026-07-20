@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -17,7 +19,9 @@
 
             <!-- Brand -->
             <HBox spacing="12" alignment="CENTER_LEFT">
-                <Label text="SPM" styleClass="avatar"/>
+                <ImageView fitHeight="42" fitWidth="42" preserveRatio="true" smooth="true">
+                    <Image url="@../images/spm-logo.png"/>
+                </ImageView>
                 <VBox spacing="1">
                     <Label text="Student Profile" styleClass="app-name"/>
                     <Label text="Manager" styleClass="app-tag"/>
@@ -31,7 +35,7 @@
             <Button text="Students" onAction="#goStudents" styleClass="nav-button" maxWidth="Infinity"/>
             <Button text="Add Student" onAction="#goAddStudent" styleClass="nav-button" maxWidth="Infinity"/>
             <Button text="Search" onAction="#goSearch" styleClass="nav-button" maxWidth="Infinity"/>
-            <Button text="Reports" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button text="Reports" onAction="#goReports" styleClass="nav-button" maxWidth="Infinity"/>
 
             <!-- Spacer pushes logout to the bottom -->
             <Region VBox.vgrow="ALWAYS"/>
@@ -80,22 +84,22 @@
 
                 <VBox styleClass="stat-card" spacing="6" HBox.hgrow="ALWAYS">
                     <Label text="Total Students" styleClass="stat-label"/>
-                    <Label text="0" styleClass="stat-value"/>
+                    <Label fx:id="totalStudentsValue" text="0" styleClass="stat-value"/>
                 </VBox>
 
                 <VBox styleClass="stat-card, stat-accent-green" spacing="6" HBox.hgrow="ALWAYS">
                     <Label text="Active Courses" styleClass="stat-label"/>
-                    <Label text="0" styleClass="stat-value"/>
+                    <Label fx:id="activeCoursesValue" text="0" styleClass="stat-value"/>
                 </VBox>
 
                 <VBox styleClass="stat-card, stat-accent-amber" spacing="6" HBox.hgrow="ALWAYS">
-                    <Label text="Sections" styleClass="stat-label"/>
-                    <Label text="0" styleClass="stat-value"/>
+                    <Label text="Total Users" styleClass="stat-label"/>
+                    <Label fx:id="totalUsersValue" text="0" styleClass="stat-value"/>
                 </VBox>
 
                 <VBox styleClass="stat-card, stat-accent-violet" spacing="6" HBox.hgrow="ALWAYS">
                     <Label text="Average GPA" styleClass="stat-label"/>
-                    <Label text="0.00" styleClass="stat-value"/>
+                    <Label fx:id="averageGpaValue" text="0.00" styleClass="stat-value"/>
                 </VBox>
 
             </HBox>

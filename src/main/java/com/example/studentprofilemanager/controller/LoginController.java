@@ -1,5 +1,10 @@
 package com.example.studentprofilemanager.controller;
 
+
+// add to imports
+import com.example.studentprofilemanager.model.Session;
+import com.example.studentprofilemanager.service.SessionManager;
+
 import com.example.studentprofilemanager.Main;
 import com.example.studentprofilemanager.model.Student;
 import com.example.studentprofilemanager.service.AuthenticationService;
@@ -51,6 +56,8 @@ public class LoginController {
     private void loginAsAdmin(ActionEvent event, String username, String password) {
 
         if (authenticationService.authenticate(username, password)) {
+            // added
+            SessionManager.createSession(new Session(-1, username, null, "ADMIN"));
 
             try {
 
@@ -85,6 +92,7 @@ public class LoginController {
         Student student = authenticationService.authenticateStudent(username, password);
 
         if (student != null) {
+            SessionManager.createSession(new Session(student.getUserId(), student.getUsername(), student.getFullName(), "STUDENT"));
 
             try {
 

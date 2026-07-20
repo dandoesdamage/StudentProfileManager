@@ -1,5 +1,6 @@
 package com.example.studentprofilemanager;
 
+import com.example.studentprofilemanager.service.SessionManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
