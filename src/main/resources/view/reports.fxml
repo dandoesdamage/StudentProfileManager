@@ -129,12 +129,6 @@
                     </columnResizePolicy>
                 </TableView>
 
-                <!-- Reserved for future features — no implementation yet -->
-                <HBox spacing="12" alignment="CENTER_RIGHT">
-                    <Button text="Print Report" styleClass="btn-secondary" disable="true"/>
-                    <Button text="Export CSV" styleClass="btn-secondary" disable="true"/>
-                </HBox>
-
             </VBox>
 
         </VBox>
