@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
  * Collects a new student profile plus login credentials, validates it and
  * stores it in the shared {@link StudentRepository}.
  */
+
 public class AddStudentController {
 
     @FXML private TextField studentIdField;
