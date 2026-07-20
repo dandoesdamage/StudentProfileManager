@@ -24,7 +24,6 @@ Student Profile Manager is a desktop application built with JavaFX and backed by
 - JDBC Database Connectivity (MySQL/XAMPP)
 - Live Dashboard Statistics
 - Detailed Student Reports
-- 
 
 ## 3. Database Technology
 
