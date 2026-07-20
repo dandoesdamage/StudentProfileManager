@@ -75,7 +75,7 @@ The application follows the Open/Closed Principle through its user hierarchy. `U
 
 # 6. Project Structure
 
-```text
+```
 StudentProfileManager
 │
 ├── src
@@ -98,12 +98,15 @@ StudentProfileManager
 │   │   │       │
 │   │   │       ├── model
 │   │   │       │   ├── Administrator.java
+│   │   │       │   ├── Course.java
 │   │   │       │   ├── Session.java
 │   │   │       │   ├── Student.java
 │   │   │       │   └── User.java
 │   │   │       │
 │   │   │       ├── repository
-│   │   │       │   └── StudentRepository.java
+│   │   │       │   ├── CourseRepository.java
+│   │   │       │   ├── StudentRepository.java
+│   │   │       │   └── UserRepository.java
 │   │   │       │
 │   │   │       ├── service
 │   │   │       │   ├── AuthenticationService.java
