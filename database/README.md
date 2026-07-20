@@ -54,5 +54,3 @@ database/
 ├── student_profile_manager.sql
 └── README.md
 ```
-
----
