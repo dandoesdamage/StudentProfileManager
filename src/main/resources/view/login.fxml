@@ -26,7 +26,7 @@
                   maxHeight="-Infinity">
 
                 <!-- Logo / brand -->
-                <ImageView fitHeight="68" fitWidth="68" preserveRatio="true" smooth="true">
+                <ImageView fitHeight="80" fitWidth="80" preserveRatio="true" smooth="true">
                     <Image url="@../images/spm-logo.png"/>
                 </ImageView>
 

@@ -18,7 +18,7 @@
 
             <!-- Brand -->
             <HBox spacing="12" alignment="CENTER_LEFT">
-                <ImageView fitHeight="42" fitWidth="42" preserveRatio="true" smooth="true">
+                <ImageView fitHeight="70" fitWidth="70" preserveRatio="true" smooth="true">
                     <Image url="@../images/spm-logo.png"/>
                 </ImageView>
                 <VBox spacing="1">
