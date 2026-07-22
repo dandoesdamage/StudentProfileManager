@@ -113,8 +113,6 @@ The following UML diagrams illustrate the overall structure, behavior, and funct
 
 ---
 
----
-
 ### 6.4 Sequence Diagram
 
 <p align="center">
@@ -126,19 +124,15 @@ The following UML diagrams illustrate the overall structure, behavior, and funct
 
 ---
 
-
-
-
 # 7. Project Structure
 
 ```
-StudentProfileManager
+ StudentProfileManager
 │
 ├── src
 │   ├── main
 │   │   ├── java
 │   │   │   └── com.example.studentprofilemanager
-│   │   │
 │   │   │       ├── controller
 │   │   │       │   ├── AddStudentController.java
 │   │   │       │   ├── DashboardController.java
@@ -182,7 +176,7 @@ StudentProfileManager
 │   │   │       │   ├── Dialogs.java
 │   │   │       │   └── SceneNavigator.java
 │   │   │       │
-│   │   │       ├── Launch.java
+│   │   │       ├── Main.java
 │   │   │       └── module-info.java
 │   │   │
 │   │   └── resources
@@ -190,17 +184,11 @@ StudentProfileManager
 │   │       │   └── style.css
 │   │       │
 │   │       ├── images
-│   │       │   ├── app-logo.png
+│   │       │   ├── spm-logo.png
 │   │       │   ├── use-case-diagram.png
 │   │       │   ├── class-diagram.png
 │   │       │   ├── activity-diagram.png
-│   │       │   ├── sequence-diagram.png
-│   │       │   
-│   │       │   
-│   │       │   
-│   │       │   
-│   │       │   
-│   │       │   
+│   │       │   └── sequence-diagram.png
 │   │       │
 │   │       └── view
 │   │           ├── login.fxml
