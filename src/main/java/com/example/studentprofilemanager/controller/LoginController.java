@@ -17,6 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import com.example.studentprofilemanager.service.SessionFactory;
 
 public class LoginController {
 
@@ -57,7 +58,7 @@ public class LoginController {
 
         if (authenticationService.authenticate(username, password)) {
             // added
-            SessionManager.createSession(new Session(-1, username, null, "ADMIN"));
+            SessionManager.createSession(SessionFactory.createAdminSession(username));
 
             try {
 
@@ -92,7 +93,7 @@ public class LoginController {
         Student student = authenticationService.authenticateStudent(username, password);
 
         if (student != null) {
-            SessionManager.createSession(new Session(student.getUserId(), student.getUsername(), student.getFullName(), "STUDENT"));
+            SessionManager.createSession(SessionFactory.createStudentSession(student));
 
             try {
 
