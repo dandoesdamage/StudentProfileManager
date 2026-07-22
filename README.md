@@ -132,18 +132,18 @@ The following UML diagrams illustrate the overall structure, behavior, and funct
 # 7. Project Structure
 
 ```
-
 StudentProfileManager
 │
 ├── src
 │   ├── main
 │   │   ├── java
 │   │   │   └── com.example.studentprofilemanager
+│   │   │
 │   │   │       ├── controller
 │   │   │       │   ├── AddStudentController.java
 │   │   │       │   ├── DashboardController.java
 │   │   │       │   ├── LoginController.java
-│   │   │       │   ├── ReportController.java
+│   │   │       │   ├── ReportsController.java
 │   │   │       │   ├── SearchStudentController.java
 │   │   │       │   ├── StudentDashboardController.java
 │   │   │       │   ├── StudentManagementController.java
@@ -167,6 +167,13 @@ StudentProfileManager
 │   │   │       │
 │   │   │       ├── service
 │   │   │       │   ├── AuthenticationService.java
+│   │   │       │   ├── AuthenticationStrategy.java
+│   │   │       │   ├── AdminAuthenticationStrategy.java
+│   │   │       │   ├── StudentAuthenticationStrategy.java
+│   │   │       │   ├── AuthResult.java
+│   │   │       │   ├── DashboardFacade.java
+│   │   │       │   ├── DashboardStats.java
+│   │   │       │   ├── SessionFactory.java
 │   │   │       │   └── SessionManager.java
 │   │   │       │
 │   │   │       ├── util
@@ -175,7 +182,7 @@ StudentProfileManager
 │   │   │       │   ├── Dialogs.java
 │   │   │       │   └── SceneNavigator.java
 │   │   │       │
-│   │   │       ├── Main.java
+│   │   │       ├── Launch.java
 │   │   │       └── module-info.java
 │   │   │
 │   │   └── resources
@@ -183,22 +190,32 @@ StudentProfileManager
 │   │       │   └── style.css
 │   │       │
 │   │       ├── images
-│   │       │   └── logo.png
+│   │       │   ├── app-logo.png
+│   │       │   ├── use-case-diagram.png
+│   │       │   ├── class-diagram.png
+│   │       │   ├── activity-diagram.png
+│   │       │   ├── sequence-diagram.png
+│   │       │   
+│   │       │   
+│   │       │   
+│   │       │   
+│   │       │   
+│   │       │   
 │   │       │
 │   │       └── view
 │   │           ├── login.fxml
 │   │           ├── register.fxml
 │   │           ├── dashboard.fxml
-│   │           ├── reports.fxml
 │   │           ├── student-dashboard.fxml
 │   │           ├── students.fxml
+│   │           ├── reports.fxml
 │   │           ├── add-student.fxml
 │   │           ├── update-student.fxml
 │   │           └── search-student.fxml
 │   │
 │   └── target
 │
-├── pom.xml
 ├── .gitignore
+├── pom.xml
 └── README.md
 ```
