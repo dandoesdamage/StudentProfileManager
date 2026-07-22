@@ -145,4 +145,3 @@ StudentProfileManager
 ├── .gitignore
 └── README.md
 ```
-Note: Print Report and Export CSV are still on work on progress
