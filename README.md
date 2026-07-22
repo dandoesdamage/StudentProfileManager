@@ -73,9 +73,66 @@ The application follows the Open/Closed Principle through its user hierarchy. `U
 
 ---
 
-# 6. Project Structure
+## 6. UML Diagrams
+
+The following UML diagrams illustrate the overall structure, behavior, and functionality of the Student Profile Manager application.
+
+### 6.1 Use Case Diagram
+
+<p align="center">
+  <!-- Replace the image path below with your actual file -->
+  <img src="src/main/resources/images/use-case.png" alt="Use Case Diagram" width="900">
+</p>
+
+**Description:**
+> This diagram illustrates the interactions between the Administrator and Student actors and the main features available within the Student Profile Manager system.
+
+---
+
+### 6.2 Class Diagram
+
+<p align="center">
+  <!-- Replace the image path below with your actual file -->
+  <img src="src/main/resources/images/class.png" width="900">
+</p>
+
+**Description:**
+> This diagram shows the application's object-oriented design, including the relationships among models, repositories, services, and the implemented design patterns (Factory, Strategy, and Facade).
+
+---
+
+### 6.3 Activity Diagram
+
+<p align="center">
+  <!-- Replace the image path below with your actual file -->
+  <img src="src/main/resources/images/activity.png" width="900">
+</p>
+
+**Description:**
+> This swimlane activity diagram represents the primary workflow of the application, from user login to student management operations and logout.
+
+---
+
+---
+
+### 6.4 Sequence Diagram
+
+<p align="center">
+<img src="src/main/resources/images/sequence.png" width="">
+</p>
+
+**Description:**
+> This sequence diagram illustrates the interaction between the user interface, controllers, services, repositories, and the database during the application's primary workflow. It demonstrates the order of method calls involved in user authentication, student management operations, session handling through Java Serialization, and database communication.
+
+---
+
+
+
+
+# 7. Project Structure
 
 ```
+
 StudentProfileManager
 │
 ├── src
