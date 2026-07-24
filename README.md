@@ -1,4 +1,4 @@
-# 🎓 Student Profile Manager
+# Student Profile Manager
 
 A JavaFX desktop application that allows administrators to efficiently manage student records through a modern and user-friendly interface, with role-based access for both administrators and students.
 
@@ -6,7 +6,7 @@ A JavaFX desktop application that allows administrators to efficiently manage st
 
 # 1. Software Overview
 
-Student Profile Manager is a desktop application built with JavaFX and backed by a MySQL database (via XAMPP) through JDBC. It follows an MVC architecture with a repository layer for data access and supports two roles — Administrator and Student — each with their own dashboard and permissions. Administrators manage the full student record lifecycle, monitor live dashboard statistics, and generate detailed student reports, while students can log in to view their own profile information.
+Student Profile Manager is a desktop application built with JavaFX and backed by a MySQL database (via XAMPP) through JDBC. It follows an MVC architecture with a repository layer for data access and supports two roles — Administrator and Student each with their own dashboard and permissions. Administrators manage the full student record lifecycle, monitor live dashboard statistics, and generate detailed student reports, while students can log in to view their own profile information.
 
 ---
 
@@ -20,6 +20,8 @@ Student Profile Manager is a desktop application built with JavaFX and backed by
 - Student Dashboard
 - Live Dashboard Statistics
 - Detailed Student Reports
+- CSV Report Export
+- Background Report Export (Multithreading implementation)
 - View Student Records
 - Add Student
 - Update Student Information
@@ -49,7 +51,32 @@ The application uses Java Serialization to persist the logged-in user's session 
 
 ---
 
-# 5. SOLID Principles
+# 5. Java Generics and Multithreading
+
+## Java Generics
+
+The application makes extensive use of Java Generics to provide compile-time type safety and improve code readability. Generic collections and JavaFX components such as `List<Student>`, `ObservableList<Student>`, `TableView<Student>`, `TableColumn<Student, String>`, and `Task<Void>` ensure that only valid object types are processed throughout the application.
+
+**Benefits:**
+- Improves type safety
+- Reduces runtime casting errors
+- Produces cleaner and more maintainable code
+- Enhances readability throughout the application
+
+## Multithreading
+
+The Reports module uses JavaFX's `Task` class together with a dedicated background thread to perform CSV report and exports asynchronously. Export operations execute outside the JavaFX Application Thread, preventing the user interface from freezing while large reports are being generated.
+
+During export, the application:
+- Executes file generation on a background thread
+- Keeps the interface responsive
+- Disables export buttons to prevent duplicate requests
+- Displays export progress and completion status to the user
+
+This implementation demonstrates Java multithreading and concurrency while maintaining a responsive user experience.
+
+---
+# 6. SOLID Principles
 
 Two SOLID principles are demonstrated in the project's implementation.
 
@@ -73,11 +100,11 @@ The application follows the Open/Closed Principle through its user hierarchy. `U
 
 ---
 
-## 6. UML Diagrams
+## 7. UML Diagrams
 
 The following UML diagrams illustrate the overall structure, behavior, and functionality of the Student Profile Manager application.
 
-### 6.1 Use Case Diagram
+### 7.1 Use Case Diagram
 
 <p align="center">
   <!-- Replace the image path below with your actual file -->
@@ -89,11 +116,11 @@ The following UML diagrams illustrate the overall structure, behavior, and funct
 
 ---
 
-### 6.2 Class Diagram
+### 7.2 Class Diagram
 
 <p align="center">
   <!-- Replace the image path below with your actual file -->
-  <img src="src/main/resources/images/class.png" width="900">
+  <img src="src/main/resources/images/class.png" width="1029" alt="">
 </p>
 
 **Description:**
@@ -101,11 +128,11 @@ The following UML diagrams illustrate the overall structure, behavior, and funct
 
 ---
 
-### 6.3 Activity Diagram
+### 7.3 Activity Diagram
 
 <p align="center">
   <!-- Replace the image path below with your actual file -->
-  <img src="src/main/resources/images/activity.png" width="900">
+  <img src="src/main/resources/images/activity.png" width="531" alt="">
 </p>
 
 **Description:**
@@ -113,10 +140,10 @@ The following UML diagrams illustrate the overall structure, behavior, and funct
 
 ---
 
-### 6.4 Sequence Diagram
+### 7.4 Sequence Diagram
 
 <p align="center">
-<img src="src/main/resources/images/sequence.png" width="">
+<img src="src/main/resources/images/sequence.png" width="" alt="">
 </p>
 
 **Description:**
@@ -127,12 +154,13 @@ The following UML diagrams illustrate the overall structure, behavior, and funct
 # 7. Project Structure
 
 ```
- StudentProfileManager
+StudentProfileManager
 │
 ├── src
 │   ├── main
 │   │   ├── java
 │   │   │   └── com.example.studentprofilemanager
+│   │   │
 │   │   │       ├── controller
 │   │   │       │   ├── AddStudentController.java
 │   │   │       │   ├── DashboardController.java
@@ -167,6 +195,7 @@ The following UML diagrams illustrate the overall structure, behavior, and funct
 │   │   │       │   ├── AuthResult.java
 │   │   │       │   ├── DashboardFacade.java
 │   │   │       │   ├── DashboardStats.java
+│   │   │       │   ├── ReportService.java
 │   │   │       │   ├── SessionFactory.java
 │   │   │       │   └── SessionManager.java
 │   │   │       │
