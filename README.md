@@ -151,7 +151,7 @@ The following UML diagrams illustrate the overall structure, behavior, and funct
 
 ---
 
-# 7. Project Structure
+# 8. Project Structure
 
 ```
 StudentProfileManager
