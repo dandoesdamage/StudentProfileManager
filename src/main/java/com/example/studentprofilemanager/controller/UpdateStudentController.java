@@ -12,12 +12,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-/**
- * Controller for the Update Student screen (update-student.fxml).
- * Shares the same layout as Add Student but is pre-filled with the selected
- * record via {@link #setStudent(Student)} and saves changes back to the
- * shared {@link StudentRepository}.
- */
+
+// Controller for the Update Student screen
 public class UpdateStudentController {
 
     @FXML private TextField studentIdField;
@@ -107,10 +103,6 @@ public class UpdateStudentController {
         SceneNavigator.navigate(event, "/view/students.fxml", "Student Management");
     }
 
-    /* ------------------------------------------------------------------ */
-    /* Validation helpers                                                  */
-    /* ------------------------------------------------------------------ */
-
     private String validate() {
         if (isBlank(studentIdField.getText())) return "Student ID is required.";
         if (isBlank(firstNameField.getText())) return "First name is required.";
@@ -156,10 +148,6 @@ public class UpdateStudentController {
         statusLabel.getStyleClass().add("status-error");
         Dialogs.error("Invalid Input", message);
     }
-
-    /* ------------------------------------------------------------------ */
-    /* Sidebar navigation                                                  */
-    /* ------------------------------------------------------------------ */
 
     @FXML
     private void goDashboard(ActionEvent event) {

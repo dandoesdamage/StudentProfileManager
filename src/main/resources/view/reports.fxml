@@ -100,7 +100,12 @@
                 </HBox>
 
                 <HBox spacing="12" alignment="CENTER_LEFT">
+                    <!-- Progress indicator: hidden normally, shown while loading/exporting -->
+                    <ProgressIndicator fx:id="progressIndicator"
+                                       prefWidth="22" prefHeight="22"
+                                       visible="false"/>
                     <Pane HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="exportCsvButton" text="Export CSV" onAction="#exportCsv" styleClass="btn-secondary"/>
                     <Button text="Refresh" onAction="#refresh" styleClass="btn-secondary"/>
                 </HBox>
 

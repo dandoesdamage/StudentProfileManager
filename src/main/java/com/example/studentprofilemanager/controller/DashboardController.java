@@ -40,10 +40,6 @@ public class DashboardController {
         averageGpaValue.setText(String.format("%.2f", stats.getAverageGpa()));
     }
 
-    /* ------------------------------------------------------------------ */
-    /* Sidebar navigation (unchanged)                                      */
-    /* ------------------------------------------------------------------ */
-
     @FXML
     private void goStudents(ActionEvent event) {
         SceneNavigator.navigate(event, "/view/students.fxml", "Student Management");
@@ -66,8 +62,9 @@ public class DashboardController {
 
     @FXML
     private void logout(ActionEvent event) throws IOException {
-
+        System.out.println("Admin logout clicked");
         SessionManager.clearSession();
+        System.out.println("Session cleared");
 
         FXMLLoader loader = new FXMLLoader(
                 Main.class.getResource("/view/login.fxml")

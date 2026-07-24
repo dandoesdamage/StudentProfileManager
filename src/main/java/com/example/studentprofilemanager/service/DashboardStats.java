@@ -1,10 +1,5 @@
 package com.example.studentprofilemanager.service;
 
-/**
- * Value object carrying the four dashboard summary statistics as one
- * cohesive unit, returned by DashboardFacade instead of four separate
- * repository calls.
- */
 public final class DashboardStats {
 
     private final int totalStudents;

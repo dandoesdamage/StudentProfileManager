@@ -17,11 +17,7 @@ import javafx.scene.control.TextField;
 
 import java.util.List;
 
-/**
- * Controller for the Search Students screen (search-student.fxml).
- * Runs a keyword search against the shared {@link StudentRepository} and shows
- * the matches in a table, with a friendly placeholder when nothing is found.
- */
+// Controller for the Search Students screen
 public class SearchStudentController {
 
     @FXML private TextField searchField;
@@ -105,10 +101,6 @@ public class SearchStudentController {
         statusLabel.getStyleClass().removeAll("status-success", "status-error", "status-info");
         statusLabel.getStyleClass().add(styleClass);
     }
-
-    /* ------------------------------------------------------------------ */
-    /* Sidebar navigation                                                  */
-    /* ------------------------------------------------------------------ */
 
     @FXML
     private void goDashboard(ActionEvent event) {

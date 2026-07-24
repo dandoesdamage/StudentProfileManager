@@ -13,11 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-/**
- * Controller for the Add Student screen (add-student.fxml).
- * Collects a new student profile plus login credentials, validates it and
- * stores it in the shared {@link StudentRepository}.
- */
+   // Collects a new student profile plus login credentials, validates it and
 
 public class AddStudentController {
 
@@ -115,9 +111,7 @@ public class AddStudentController {
         SceneNavigator.navigate(event, "/view/students.fxml", "Student Management");
     }
 
-    /* ------------------------------------------------------------------ */
-    /* Validation helpers                                                  */
-    /* ------------------------------------------------------------------ */
+    // Validation helpers
 
     private String validate() {
         if (isBlank(studentIdField.getText())) return "Student ID is required.";
@@ -169,9 +163,7 @@ public class AddStudentController {
         Dialogs.error("Invalid Input", message);
     }
 
-    /* ------------------------------------------------------------------ */
-    /* Sidebar navigation                                                  */
-    /* ------------------------------------------------------------------ */
+    // Sidebar navigation
 
     @FXML
     private void goDashboard(ActionEvent event) {

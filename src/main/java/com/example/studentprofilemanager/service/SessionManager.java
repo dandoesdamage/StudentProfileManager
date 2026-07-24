@@ -9,12 +9,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-/**
- * Responsible ONLY for serializing, deserializing, and deleting the
- * session.dat file that persists the logged-in user's session while
- * navigating the application. No authentication or navigation logic
- * lives here.
- */
 public final class SessionManager {
 
     private static final String SESSION_FILE = "session.dat";

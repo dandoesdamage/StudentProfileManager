@@ -122,11 +122,7 @@ public class Student extends User {
         this.contactNumber = contactNumber;
     }
 
-    /**
-     * Convenience display name built from the profile parts.
-     * Falls back to the inherited fullName when the parts are empty,
-     * so existing data keeps working. Used by the TableView columns.
-     */
+
     public String getDisplayName() {
         StringBuilder sb = new StringBuilder();
         if (lastName != null && !lastName.isBlank()) {

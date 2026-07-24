@@ -7,11 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * JDBC-backed read access for the `users` table. Currently limited to
- * what the dashboard needs (a total user count); grow this class only
- * as further user-management features require it.
- */
 public class UserRepository {
 
     private static UserRepository instance;
@@ -23,10 +18,6 @@ public class UserRepository {
         return instance;
     }
 
-    /**
-     * Count of all registered users (both ADMIN and STUDENT roles).
-     * Returns 0 if the table is empty.
-     */
     public int countUsers() {
         String sql = "SELECT COUNT(*) AS total FROM users";
 

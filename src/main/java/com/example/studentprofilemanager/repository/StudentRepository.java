@@ -36,10 +36,6 @@ public class StudentRepository {
                     + "s.course, s.year_level, s.section, s.contact_number, s.gpa "
                     + "FROM students s JOIN users u ON s.user_id = u.id";
 
-    /* ---------------------------------------------------------------------
-       Original API (signatures unchanged)
-       --------------------------------------------------------------------- */
-
     public void addStudent(Student student) {
 
         String insertUser =
@@ -136,14 +132,6 @@ public class StudentRepository {
         }
     }
 
-    /**
-     * No known callers exist for this overload (confirmed by inspection of
-     * AddStudentController, SearchStudentController, StudentManagementController,
-     * UpdateStudentController). Implemented as a thin wrapper for safety:
-     * resolves the record currently at that position and delegates to the
-     * by-object update below.
-     */
-
     public void updateStudent(int index, Student student) {
         List<Student> all = getAllStudents();
         if (index >= 0 && index < all.size()) {
@@ -152,10 +140,6 @@ public class StudentRepository {
         updateStudent(student);
     }
 
-    /**
-     * Matches by studentId, same as the original in-memory version.
-     * Falls back to addStudent when no existing record is found.
-     */
     public void updateStudent(Student updated) {
         if (updated == null) {
             return;
@@ -239,15 +223,6 @@ public class StudentRepository {
         return null;
     }
 
-    /* ---------------------------------------------------------------------
-       Additive helpers (unchanged signatures)
-       --------------------------------------------------------------------- */
-
-    /**
-     * Same behavior as before: fetches all rows and filters in Java, so the
-     * search still covers the computed getDisplayName() exactly as it did
-     * against the in-memory list.
-     */
     public List<Student> searchStudents(String keyword) {
         List<Student> all = getAllStudents();
 
@@ -272,12 +247,6 @@ public class StudentRepository {
         return matches;
     }
 
-    /**
-     * Filters students by keyword (reusing searchStudents), then narrows
-     * by course and year level. "All" (or null) skips that filter.
-     * Keeps all filtering logic inside the repository per Reports page
-     * requirements, rather than in the controller.
-     */
     public List<Student> filterStudents(String keyword, String course, String year) {
         List<Student> base = searchStudents(keyword);
         List<Student> filtered = new ArrayList<>();
@@ -357,10 +326,6 @@ public class StudentRepository {
         return 1;
     }
 
-    /**
-     * Count of all students. Returns 0 if the table is empty
-     * (COUNT(*) always returns a row, even on an empty table).
-     */
     public int countStudents() {
         String sql = "SELECT COUNT(*) AS total FROM students";
 
@@ -379,11 +344,6 @@ public class StudentRepository {
         return 0;
     }
 
-    /**
-     * Average GPA across all students. Returns 0.0 if the table is
-     * empty (AVG() on zero rows yields SQL NULL, which we guard against
-     * via ResultSet.getDouble() + wasNull(), rather than returning NaN).
-     */
     public double getAverageGpa() {
         String sql = "SELECT AVG(gpa) AS avg_gpa FROM students";
 
@@ -402,10 +362,6 @@ public class StudentRepository {
 
         return 0.0;
     }
-
-    /* ---------------------------------------------------------------------
-       Row mapping
-       --------------------------------------------------------------------- */
 
     private Student mapRow(ResultSet rs) throws SQLException {
         Student s = new Student();

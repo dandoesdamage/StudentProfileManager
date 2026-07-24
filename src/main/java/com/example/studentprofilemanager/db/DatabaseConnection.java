@@ -4,14 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * Central place for opening JDBC connections to the
- * student_profile_manager MySQL database (XAMPP, default credentials).
- *
- * <p>Repositories call {@link #getConnection()} to obtain a fresh
- * connection per operation. Nothing else in the application should
- * hold JDBC connection details directly.</p>
- */
+
 public final class DatabaseConnection {
 
     private static final String URL =

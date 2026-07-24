@@ -1,15 +1,11 @@
 package com.example.studentprofilemanager.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 
-/**
- * Minimal, serializable snapshot of the currently logged-in user.
- * This is intentionally NOT a full User/Student/Administrator object —
- * it holds only what's needed to identify the user and their role
- * while navigating the application.
- */
 public class Session implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private int userId;

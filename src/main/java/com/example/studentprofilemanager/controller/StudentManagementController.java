@@ -20,11 +20,7 @@ import javafx.scene.control.TextField;
 
 import java.util.List;
 
-/**
- * Controller for the Student Management screen (students.fxml).
- * Displays all students in a table with search, filtering and CRUD actions.
- * All data comes from the shared in-memory {@link StudentRepository}.
- */
+// Controller for the Student Management screen
 public class StudentManagementController {
 
     @FXML private TableView<Student> studentTable;
@@ -88,7 +84,7 @@ public class StudentManagementController {
         applyFilters();
     }
 
-    /** Rebuilds the table contents from the repository using the active filters. */
+    // Rebuilds the table contents from the repository using the active filters
     private void applyFilters() {
 
         String keyword = searchField.getText() == null ? "" : searchField.getText().trim();
@@ -112,10 +108,6 @@ public class StudentManagementController {
         statusLabel.getStyleClass().removeAll("status-success", "status-error", "status-info");
         statusLabel.getStyleClass().add("status-info");
     }
-
-    /* ------------------------------------------------------------------ */
-    /* Toolbar actions                                                     */
-    /* ------------------------------------------------------------------ */
 
     @FXML
     private void addStudent(ActionEvent event) {
@@ -171,10 +163,6 @@ public class StudentManagementController {
         statusLabel.getStyleClass().removeAll("status-success", "status-error", "status-info");
         statusLabel.getStyleClass().add("status-info");
     }
-
-    /* ------------------------------------------------------------------ */
-    /* Sidebar navigation                                                  */
-    /* ------------------------------------------------------------------ */
 
     @FXML
     private void goDashboard(ActionEvent event) {

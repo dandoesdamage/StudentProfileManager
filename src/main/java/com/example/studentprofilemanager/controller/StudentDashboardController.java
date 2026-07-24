@@ -1,6 +1,5 @@
 package com.example.studentprofilemanager.controller;
 
-// add to imports
 import com.example.studentprofilemanager.service.SessionManager;
 import com.example.studentprofilemanager.Main;
 import com.example.studentprofilemanager.model.Student;

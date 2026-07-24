@@ -1,7 +1,7 @@
 package com.example.studentprofilemanager.controller;
 
 
-// add to imports
+
 import com.example.studentprofilemanager.model.Session;
 import com.example.studentprofilemanager.service.SessionManager;
 
@@ -27,8 +27,6 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
-    /* Additive: role selector, defaults to Administrator so existing
-       behavior is unchanged unless the user explicitly picks Student. */
     @FXML
     private RadioButton adminRadio;
 
@@ -53,13 +51,10 @@ public class LoginController {
         }
     }
 
-    /* Original admin logic, unchanged. */
     private void loginAsAdmin(ActionEvent event, String username, String password) {
 
         if (authenticationService.authenticate(username, password)) {
-            // added
             SessionManager.createSession(SessionFactory.createAdminSession(username));
-
             try {
 
                 FXMLLoader loader = new FXMLLoader(
@@ -87,7 +82,6 @@ public class LoginController {
         }
     }
 
-    /* Additive: student login. */
     private void loginAsStudent(ActionEvent event, String username, String password) {
 
         Student student = authenticationService.authenticateStudent(username, password);

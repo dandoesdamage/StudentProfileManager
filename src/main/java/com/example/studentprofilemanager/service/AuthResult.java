@@ -2,11 +2,6 @@ package com.example.studentprofilemanager.service;
 
 import com.example.studentprofilemanager.model.Student;
 
-/**
- * Common result type returned by every AuthenticationStrategy, so both
- * the admin and student strategies can share one interface method despite
- * producing different kinds of information on success.
- */
 public final class AuthResult {
 
     private final boolean success;

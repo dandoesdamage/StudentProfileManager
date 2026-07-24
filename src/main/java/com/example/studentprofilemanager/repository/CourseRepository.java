@@ -10,12 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * JDBC-backed storage for {@link Course} records (the `courses` table).
- * Mirrors the style of StudentRepository. CRUD methods are provided for
- * future course-management screens; only getAllCourseCodes() is currently
- * called (by AppData).
- */
 public class CourseRepository {
 
     private static CourseRepository instance;
@@ -78,9 +72,7 @@ public class CourseRepository {
         }
     }
 
-    /**
-     * Count of all courses. Returns 0 if the table is empty.
-     */
+    // Count of all courses. Returns 0 if the table is empty.
     public int countCourses() {
         String sql = "SELECT COUNT(*) AS total FROM courses";
 
